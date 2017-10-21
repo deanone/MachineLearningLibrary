@@ -1,0 +1,17 @@
+﻿  stdafx.cpp
+  PropertiesParser.cpp
+  Point.cpp
+  Neuron.cpp
+  NeuralNetwork.cpp
+  NaiveBayesClassifier.cpp
+  MultinomialNaiveBayesClassifier.cpp
+  MathFunc.cpp
+  Layer.cpp
+  KNN.cpp
+  Kmeans.cpp
+  GenericFunc.cpp
+  GaussianNaiveBayesClassifier.cpp
+  Cluster.cpp
+  Classifier.cpp
+  Generating Code...
+  MachineLearningLibrary.vcxproj -> C:\Users\thana\VisualC++Projects\MachineLearningLibrary\Debug\MachineLearningLibrary.lib
