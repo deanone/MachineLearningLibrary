@@ -66,6 +66,12 @@
     <ClInclude Include="Classifier.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Regressor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LinearRegressor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -111,6 +117,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Classifier.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Regressor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LinearRegressor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

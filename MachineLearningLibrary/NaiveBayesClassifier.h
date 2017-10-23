@@ -22,6 +22,7 @@ namespace MLL
 				~NaiveBayesClassifier();
 				size_t GetNumOfFeatures() const;
 				size_t GetNumOfClasses() const;
+				virtual void Load(std::vector<std::vector<double> >& data, std::vector<int>& labels, bool training = true);
 				void Fit();
 				void Print();
 				void Run();

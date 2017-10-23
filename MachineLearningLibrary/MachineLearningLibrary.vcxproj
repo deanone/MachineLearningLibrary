@@ -89,11 +89,16 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>D:\C++\Libraries\armadillo-8.200.1\armadillo-8.200.1\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <Lib>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -117,6 +122,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>D:\C++\Libraries\armadillo-8.200.1\armadillo-8.200.1\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -124,6 +130,10 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <Lib>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -153,6 +163,7 @@
     <ClInclude Include="Kmeans.h" />
     <ClInclude Include="KNN.h" />
     <ClInclude Include="Layer.h" />
+    <ClInclude Include="LinearRegressor.h" />
     <ClInclude Include="MathFunc.h" />
     <ClInclude Include="MultinomialNaiveBayesClassifier.h" />
     <ClInclude Include="NaiveBayesClassifier.h" />
@@ -160,6 +171,7 @@
     <ClInclude Include="Neuron.h" />
     <ClInclude Include="Point.h" />
     <ClInclude Include="PropertiesParser.h" />
+    <ClInclude Include="Regressor.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
@@ -171,6 +183,7 @@
     <ClCompile Include="Kmeans.cpp" />
     <ClCompile Include="KNN.cpp" />
     <ClCompile Include="Layer.cpp" />
+    <ClCompile Include="LinearRegressor.cpp" />
     <ClCompile Include="MathFunc.cpp" />
     <ClCompile Include="MultinomialNaiveBayesClassifier.cpp" />
     <ClCompile Include="NaiveBayesClassifier.cpp" />
@@ -178,6 +191,7 @@
     <ClCompile Include="Neuron.cpp" />
     <ClCompile Include="Point.cpp" />
     <ClCompile Include="PropertiesParser.cpp" />
+    <ClCompile Include="Regressor.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

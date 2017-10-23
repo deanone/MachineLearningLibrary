@@ -22,6 +22,10 @@ size_t MLL::SL::Classification::NaiveBayesClassifier::GetNumOfClasses() const
 	return numOfClasses;
 }
 
+void MLL::SL::Classification::NaiveBayesClassifier::Load(std::vector<std::vector<double> >& data, std::vector<int>& labels, bool training /*= true*/)
+{
+}
+
 void MLL::SL::Classification::NaiveBayesClassifier::Fit()
 {
 }

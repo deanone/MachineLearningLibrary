@@ -1,6 +1,7 @@
 c:\users\thana\visualc++projects\machinelearninglibrary\machinelearninglibrary\release\machinelearninglibrary.pch
 c:\users\thana\visualc++projects\machinelearninglibrary\machinelearninglibrary\release\machinelearninglibrary.pdb
 c:\users\thana\visualc++projects\machinelearninglibrary\machinelearninglibrary\release\stdafx.obj
+c:\users\thana\visualc++projects\machinelearninglibrary\machinelearninglibrary\release\regressor.obj
 c:\users\thana\visualc++projects\machinelearninglibrary\machinelearninglibrary\release\propertiesparser.obj
 c:\users\thana\visualc++projects\machinelearninglibrary\machinelearninglibrary\release\point.obj
 c:\users\thana\visualc++projects\machinelearninglibrary\machinelearninglibrary\release\neuron.obj
@@ -8,6 +9,7 @@ c:\users\thana\visualc++projects\machinelearninglibrary\machinelearninglibrary\r
 c:\users\thana\visualc++projects\machinelearninglibrary\machinelearninglibrary\release\naivebayesclassifier.obj
 c:\users\thana\visualc++projects\machinelearninglibrary\machinelearninglibrary\release\multinomialnaivebayesclassifier.obj
 c:\users\thana\visualc++projects\machinelearninglibrary\machinelearninglibrary\release\mathfunc.obj
+c:\users\thana\visualc++projects\machinelearninglibrary\machinelearninglibrary\release\linearregressor.obj
 c:\users\thana\visualc++projects\machinelearninglibrary\machinelearninglibrary\release\layer.obj
 c:\users\thana\visualc++projects\machinelearninglibrary\machinelearninglibrary\release\knn.obj
 c:\users\thana\visualc++projects\machinelearninglibrary\machinelearninglibrary\release\kmeans.obj

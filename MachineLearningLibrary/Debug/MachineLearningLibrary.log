@@ -1,4 +1,5 @@
 ﻿  stdafx.cpp
+  Regressor.cpp
   PropertiesParser.cpp
   Point.cpp
   Neuron.cpp
@@ -6,6 +7,7 @@
   NaiveBayesClassifier.cpp
   MultinomialNaiveBayesClassifier.cpp
   MathFunc.cpp
+  LinearRegressor.cpp
   Layer.cpp
   KNN.cpp
   Kmeans.cpp

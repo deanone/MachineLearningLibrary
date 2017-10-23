@@ -33,15 +33,15 @@ MLL::SL::Classification::GaussianNaiveBayesClassifier::~GaussianNaiveBayesClassi
 	if (!counts.empty()) counts.clear();
 }
 
-void MLL::SL::Classification::GaussianNaiveBayesClassifier::Fit()
+void MLL::SL::Classification::GaussianNaiveBayesClassifier::Load(std::vector<std::vector<double> >& data, std::vector<int>& labels, bool training /*= true*/)
 {
 	// Load all data into memory.
 	// TODO: Change this to iteratively read training instances from disk in
 	// order to reduce the memory limitations.
-	std::vector<std::vector<double> > data;
-	std::vector<int> classes;
+
+	std::string filename = training ? trainDataFilename : testDataFilename;
 	std::string line;
-	std::ifstream in(trainDataFilename);
+	std::ifstream in(filename);
 	if (in.is_open())
 	{
 		while (std::getline(in, line))
@@ -56,10 +56,17 @@ void MLL::SL::Classification::GaussianNaiveBayesClassifier::Fit()
 			for (size_t i = 0; i < (items.size() - 1); ++i)
 				temp.push_back(stod(items[i]));
 			data.push_back(temp);
-			classes.push_back(stoi(items[items.size() - 1]));
+			labels.push_back(stoi(items[items.size() - 1]));
 		}
 		in.close();
 	}
+}
+
+void MLL::SL::Classification::GaussianNaiveBayesClassifier::Fit()
+{
+	std::vector<std::vector<double> > data;
+	std::vector<int> labels;
+	Load(data, labels);
 
 	// Find counts of instances per class per feature and mean of values per class per feature
 	size_t numOfTrainingInstances = data.size();
@@ -67,7 +74,7 @@ void MLL::SL::Classification::GaussianNaiveBayesClassifier::Fit()
 	{
 		for (size_t trainingInstanceId = 0; trainingInstanceId < numOfTrainingInstances; ++trainingInstanceId)
 		{
-			int classId = classes[trainingInstanceId];
+			int classId = labels[trainingInstanceId];
 			classProbs[classId]++;
 			counts[classId][featureId]++;
 			means[classId][featureId] += data[trainingInstanceId][featureId];
@@ -83,7 +90,7 @@ void MLL::SL::Classification::GaussianNaiveBayesClassifier::Fit()
 	{
 		for (size_t trainingInstanceId = 0; trainingInstanceId < numOfTrainingInstances; ++trainingInstanceId)
 		{
-			int classId = classes[trainingInstanceId];
+			int classId = labels[trainingInstanceId];
 			variances[classId][featureId] += std::pow(data[trainingInstanceId][featureId] - means[classId][featureId], 2);
 		}
 	}
@@ -94,7 +101,7 @@ void MLL::SL::Classification::GaussianNaiveBayesClassifier::Fit()
 
 																				// Find probabilities of classes
 	for (size_t classId = 0; classId < numOfClasses; ++classId)
-		classProbs.push_back(static_cast<double>(MLL::UTIL::mfnc::CountOccurences(classes, classId)) / static_cast<double>(classes.size()));
+		classProbs.push_back(static_cast<double>(MLL::UTIL::mfnc::CountOccurences(labels, classId)) / static_cast<double>(labels.size()));
 }
 
 void MLL::SL::Classification::GaussianNaiveBayesClassifier::Print()
@@ -114,31 +121,9 @@ void MLL::SL::Classification::GaussianNaiveBayesClassifier::Print()
 
 void MLL::SL::Classification::GaussianNaiveBayesClassifier::Run()
 {
-	// Load all data into memory.
-	// TODO: Change this to iteratively read training instances from disk in
-	// order to reduce the memory limitations.
 	std::vector<std::vector<double> > data;
-	std::vector<int> classes;
-	std::string line;
-	std::ifstream in(testDataFilename);
-	if (in.is_open())
-	{
-		while (std::getline(in, line))
-		{
-			std::istringstream iss(line);
-			std::string item;
-			std::vector<std::string> items;
-			while (std::getline(iss, item, ','))
-				items.push_back(item);
-
-			std::vector<double> temp;
-			for (size_t i = 0; i < (items.size() - 1); ++i)
-				temp.push_back(stod(items[i]));
-			data.push_back(temp);
-			classes.push_back(stoi(items[items.size() - 1]));
-		}
-		in.close();
-	}
+	std::vector<int> labels;
+	Load(data, labels, false);
 
 	size_t numOfTrainingInstances = data.size();
 	std::cout << "Real, Predicted\n";
@@ -158,6 +143,6 @@ void MLL::SL::Classification::GaussianNaiveBayesClassifier::Run()
 				predictedClass = classId;
 			}
 		}
-		std::cout << classes[trainingInstanceId] << "," << predictedClass << std::endl;
+		std::cout << labels[trainingInstanceId] << "," << predictedClass << std::endl;
 	}
 }

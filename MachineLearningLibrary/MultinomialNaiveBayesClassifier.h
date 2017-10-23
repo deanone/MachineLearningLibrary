@@ -15,7 +15,7 @@ namespace MLL
 				MultinomialNaiveBayesClassifier(std::string trainDataFilename_, std::string testDataFilename_, 
 					unsigned int numOfFeatures_, unsigned int numOfClasses_);
 				~MultinomialNaiveBayesClassifier();
-
+				void Load(std::vector<std::vector<double> >& data, std::vector<int>& labels, bool training = true);
 				void Fit();
 				void Print();
 				void Run();

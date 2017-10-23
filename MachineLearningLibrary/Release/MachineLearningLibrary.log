@@ -6,6 +6,7 @@
   Kmeans.cpp
   KNN.cpp
   Layer.cpp
+  LinearRegressor.cpp
   MathFunc.cpp
   MultinomialNaiveBayesClassifier.cpp
   NaiveBayesClassifier.cpp
@@ -13,4 +14,5 @@
   Neuron.cpp
   Point.cpp
   PropertiesParser.cpp
+  Regressor.cpp
   MachineLearningLibrary.vcxproj -> C:\Users\thana\VisualC++Projects\MachineLearningLibrary\Release\MachineLearningLibrary.lib
