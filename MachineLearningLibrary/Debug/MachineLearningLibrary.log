@@ -8,6 +8,8 @@
   MultinomialNaiveBayesClassifier.cpp
   MathFunc.cpp
   LinearRegressor.cpp
+CL : warning : detected 'min' and/or 'max' macros and undefined them;
+CL : warning : you may wish to define NOMINMAX before including any windows header
   Layer.cpp
   KNN.cpp
   Kmeans.cpp
@@ -16,4 +18,15 @@
   Cluster.cpp
   Classifier.cpp
   Generating Code...
+blas_win64_MT.lib(blas_win64_MT.dll) : warning LNK4006: __imp_xerbla_array_ already defined in lapack_win64_MT.lib(lapack_win64_MT.dll); second definition ignored
+blas_win64_MT.lib(blas_win64_MT.dll) : warning LNK4006: xerbla_array_ already defined in lapack_win64_MT.lib(lapack_win64_MT.dll); second definition ignored
+blas_win64_MT.lib(blas_win64_MT.dll) : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library
+blas_win64_MT.lib(blas_win64_MT.dll) : warning LNK4006: __imp_xerbla_ already defined in lapack_win64_MT.lib(lapack_win64_MT.dll); second definition ignored
+blas_win64_MT.lib(blas_win64_MT.dll) : warning LNK4006: xerbla_ already defined in lapack_win64_MT.lib(lapack_win64_MT.dll); second definition ignored
+blas_win64_MT.lib(blas_win64_MT.dll) : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library
+blas_win64_MT.lib(blas_win64_MT.dll) : warning LNK4006: __imp_lsame_ already defined in lapack_win64_MT.lib(lapack_win64_MT.dll); second definition ignored
+blas_win64_MT.lib(blas_win64_MT.dll) : warning LNK4006: lsame_ already defined in lapack_win64_MT.lib(lapack_win64_MT.dll); second definition ignored
+blas_win64_MT.lib(blas_win64_MT.dll) : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library
+blas_win64_MT.lib(blas_win64_MT.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in lapack_win64_MT.lib(lapack_win64_MT.dll); second definition ignored
+blas_win64_MT.lib(blas_win64_MT.dll) : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library
   MachineLearningLibrary.vcxproj -> C:\Users\thana\VisualC++Projects\MachineLearningLibrary\Debug\MachineLearningLibrary.lib

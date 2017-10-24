@@ -7,6 +7,8 @@
   KNN.cpp
   Layer.cpp
   LinearRegressor.cpp
+CL : warning : detected 'min' and/or 'max' macros and undefined them;
+CL : warning : you may wish to define NOMINMAX before including any windows header
   MathFunc.cpp
   MultinomialNaiveBayesClassifier.cpp
   NaiveBayesClassifier.cpp
@@ -15,4 +17,11 @@
   Point.cpp
   PropertiesParser.cpp
   Regressor.cpp
+lapack_win64_MT.lib(lapack_win64_MT.dll) : warning LNK4006: __imp_xerbla_array_ already defined in lapack_win64_MT.lib(lapack_win64_MT.dll); second definition ignored
+lapack_win64_MT.lib(lapack_win64_MT.dll) : warning LNK4006: xerbla_array_ already defined in lapack_win64_MT.lib(lapack_win64_MT.dll); second definition ignored
+lapack_win64_MT.lib(lapack_win64_MT.dll) : warning LNK4006: __imp_xerbla_ already defined in lapack_win64_MT.lib(lapack_win64_MT.dll); second definition ignored
+lapack_win64_MT.lib(lapack_win64_MT.dll) : warning LNK4006: xerbla_ already defined in lapack_win64_MT.lib(lapack_win64_MT.dll); second definition ignored
+lapack_win64_MT.lib(lapack_win64_MT.dll) : warning LNK4006: __imp_lsame_ already defined in lapack_win64_MT.lib(lapack_win64_MT.dll); second definition ignored
+lapack_win64_MT.lib(lapack_win64_MT.dll) : warning LNK4006: lsame_ already defined in lapack_win64_MT.lib(lapack_win64_MT.dll); second definition ignored
+blas_win64_MT.lib(blas_win64_MT.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in lapack_win64_MT.lib(lapack_win64_MT.dll); second definition ignored
   MachineLearningLibrary.vcxproj -> C:\Users\thana\VisualC++Projects\MachineLearningLibrary\Release\MachineLearningLibrary.lib

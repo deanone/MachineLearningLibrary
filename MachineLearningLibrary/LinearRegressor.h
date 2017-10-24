@@ -2,6 +2,7 @@
 #define LINEAR_REGRESSOR_H
 
 #include "Regressor.h"
+#include <vector>
 
 namespace MLL
 {
@@ -13,6 +14,7 @@ namespace MLL
 			{
 				std::vector<std::vector<double> > X;
 				std::vector<double> y;
+				std::vector<double> b;
 			public:
 				LinearRegressor(std::string trainDataFilename_, std::string testDataFilename_);
 				~LinearRegressor();
