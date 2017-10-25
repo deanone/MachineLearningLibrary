@@ -87,7 +87,7 @@ MLL::UL::Clustering::Point MLL::UL::Clustering::Point::operator+(const Point &p)
 	return *this;
 }
 
-MLL::UL::Clustering::Point MLL::UL::Clustering::Point::operator/(int m)
+MLL::UL::Clustering::Point MLL::UL::Clustering::Point::operator/(size_t m)
 {
 	for (size_t i = 0; i < values.size(); ++i)
 		values[i] /= m;
@@ -111,9 +111,9 @@ MLL::UL::Clustering::Point MLL::UL::Clustering::Point::operator=(const Point &p)
 
 bool MLL::UL::Clustering::Point::operator==(const Point &p)
 {
-	int s1 = values.size();
-	int s2 = p.values.size();
-	int s = s1 < s2 ? s1 : s2;
+	size_t s1 = values.size();
+	size_t s2 = p.values.size();
+	size_t s = s1 < s2 ? s1 : s2;
 	for (int i = 0; i < s; ++i)
 		if (values[i] != p.values[i]) return false;
 	return true;

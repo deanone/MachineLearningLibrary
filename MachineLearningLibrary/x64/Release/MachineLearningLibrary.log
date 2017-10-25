@@ -2,19 +2,19 @@
   Classifier.cpp
   Cluster.cpp
   GaussianNaiveBayesClassifier.cpp
-GaussianNaiveBayesClassifier.cpp(104): warning C4267: 'argument': conversion from 'size_t' to 'const int', possible loss of data
-GaussianNaiveBayesClassifier.cpp(143): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+GaussianNaiveBayesClassifier.cpp(70): warning C4267: 'argument': conversion from 'size_t' to 'const int', possible loss of data
+GaussianNaiveBayesClassifier.cpp(108): warning C4267: 'argument': conversion from 'size_t' to 'const int', possible loss of data
   GenericFunc.cpp
   Kmeans.cpp
-Kmeans.cpp(133): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
-Kmeans.cpp(199): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-Kmeans.cpp(219): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-  KNN.cpp
+  KNNClassifier.cpp
 C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\utility(216): warning C4244: 'initializing': conversion from 'unsigned __int64' to 'int', possible loss of data
-  KNN.cpp(90): note: see reference to function template instantiation 'std::pair<int,double>::pair<unsigned __int64,double,void,0>(std::pair<unsigned __int64,double> &&) noexcept' being compiled
-  KNN.cpp(90): note: see reference to function template instantiation 'std::pair<int,double>::pair<unsigned __int64,double,void,0>(std::pair<unsigned __int64,double> &&) noexcept' being compiled
+  KNNClassifier.cpp(46): note: see reference to function template instantiation 'std::pair<int,double>::pair<unsigned __int64,double,void,0>(std::pair<unsigned __int64,double> &&) noexcept' being compiled
+  KNNClassifier.cpp(46): note: see reference to function template instantiation 'std::pair<int,double>::pair<unsigned __int64,double,void,0>(std::pair<unsigned __int64,double> &&) noexcept' being compiled
   Layer.cpp
   LinearRegressor.cpp
+CL : warning : detected 'min' and/or 'max' macros and undefined them;
+CL : warning : you may wish to define NOMINMAX before including any windows header
+  Loader.cpp
 CL : warning : detected 'min' and/or 'max' macros and undefined them;
 CL : warning : you may wish to define NOMINMAX before including any windows header
   MathFunc.cpp
@@ -25,8 +25,6 @@ MathFunc.cpp(185): warning C4244: 'return': conversion from '__int64' to 'int', 
 NeuralNetwork.cpp(67): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
   Neuron.cpp
   Point.cpp
-Point.cpp(114): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-Point.cpp(115): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
   PropertiesParser.cpp
   Regressor.cpp
 blas_win64_MT.lib(blas_win64_MT.dll) : warning LNK4006: __imp_xerbla_array_ already defined in blas_win64_MT.lib(blas_win64_MT.dll); second definition ignored

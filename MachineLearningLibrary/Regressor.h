@@ -1,5 +1,5 @@
-#ifndef REGRESSOR_H
-#define REGRESSOR_H
+#ifndef MACHINE_LEARNING_LIBRARY_SUPERVISED_LEARNING_REGRESSION_REGRESSOR_H
+#define MACHINE_LEARNING_LIBRARY_SUPERVISED_LEARNING_REGRESSION_REGRESSOR_H
 
 #include <string>
 
@@ -11,23 +11,16 @@ namespace MLL
 		{
 			class Regressor
 			{
-			protected:
-				std::string trainDataFilename;
-				std::string testDataFilename;
 			public:
-				Regressor(std::string trainDataFilename_, std::string testDataFilename_);
+				Regressor();
 				~Regressor();
-				void SetTrainDataFilename(const std::string& trainDataFilename);
-				std::string GetTrainDataFilename() const;
-				void SetTestDataFilename(const std::string& testDataFilename);
-				std::string GetTestDataFilename() const;
 
-				virtual void Fit();
-				virtual void Print();
-				virtual void Run();
+				virtual void Fit(const std::vector<std::vector<double> >& predictors, const std::vector<double>& labels) = 0;
+				virtual void Predict(const std::vector<std::vector<double> >& predictors, std::vector<double>& predictions) = 0;
+				virtual void Print() = 0;
 			};
 		}
 	}
 }
 
-#endif	//	!REGRESSOR_H
+#endif	//	!MACHINE_LEARNING_LIBRARY_SUPERVISED_LEARNING_REGRESSION_REGRESSOR_H

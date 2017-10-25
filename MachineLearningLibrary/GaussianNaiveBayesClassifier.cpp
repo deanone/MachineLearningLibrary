@@ -2,9 +2,8 @@
 #include "GaussianNaiveBayesClassifier.h"
 #include "MathFunc.h"
 
-MLL::SL::Classification::GaussianNaiveBayesClassifier::GaussianNaiveBayesClassifier(std::string trainDataFilename_, std::string testDataFilename_, 
-	unsigned int numOfFeatures_, unsigned int numOfClasses_) :
-	NaiveBayesClassifier(trainDataFilename_, testDataFilename_, numOfFeatures_, numOfClasses_)
+MLL::SL::Classification::GaussianNaiveBayesClassifier::GaussianNaiveBayesClassifier(unsigned int numOfFeatures_, unsigned int numOfClasses_) :
+	NaiveBayesClassifier(numOfFeatures_, numOfClasses_)
 {
 	size_t i = 0;
 	for (; i < numOfClasses; ++i)
@@ -33,43 +32,10 @@ MLL::SL::Classification::GaussianNaiveBayesClassifier::~GaussianNaiveBayesClassi
 	if (!counts.empty()) counts.clear();
 }
 
-void MLL::SL::Classification::GaussianNaiveBayesClassifier::Load(std::vector<std::vector<double> >& data, std::vector<int>& labels, bool training /*= true*/)
+void MLL::SL::Classification::GaussianNaiveBayesClassifier::Fit(const std::vector<std::vector<double> >& predictors, const std::vector<int>& labels)
 {
-	// Load all data into memory.
-	// TODO: Change this to iteratively read training instances from disk in
-	// order to reduce the memory limitations.
-
-	std::string filename = training ? trainDataFilename : testDataFilename;
-	std::string line;
-	std::ifstream in(filename);
-	if (in.is_open())
-	{
-		while (std::getline(in, line))
-		{
-			std::istringstream iss(line);
-			std::string item;
-			std::vector<std::string> items;
-			while (std::getline(iss, item, ','))
-				items.push_back(item);
-
-			std::vector<double> temp;
-			for (size_t i = 0; i < (items.size() - 1); ++i)
-				temp.push_back(stod(items[i]));
-			data.push_back(temp);
-			labels.push_back(stoi(items[items.size() - 1]));
-		}
-		in.close();
-	}
-}
-
-void MLL::SL::Classification::GaussianNaiveBayesClassifier::Fit()
-{
-	std::vector<std::vector<double> > data;
-	std::vector<int> labels;
-	Load(data, labels);
-
 	// Find counts of instances per class per feature and mean of values per class per feature
-	size_t numOfTrainingInstances = data.size();
+	size_t numOfTrainingInstances = predictors.size();
 	for (size_t featureId = 0; featureId < numOfFeatures; ++featureId)
 	{
 		for (size_t trainingInstanceId = 0; trainingInstanceId < numOfTrainingInstances; ++trainingInstanceId)
@@ -77,7 +43,7 @@ void MLL::SL::Classification::GaussianNaiveBayesClassifier::Fit()
 			int classId = labels[trainingInstanceId];
 			classProbs[classId]++;
 			counts[classId][featureId]++;
-			means[classId][featureId] += data[trainingInstanceId][featureId];
+			means[classId][featureId] += predictors[trainingInstanceId][featureId];
 		}
 	}
 
@@ -91,7 +57,7 @@ void MLL::SL::Classification::GaussianNaiveBayesClassifier::Fit()
 		for (size_t trainingInstanceId = 0; trainingInstanceId < numOfTrainingInstances; ++trainingInstanceId)
 		{
 			int classId = labels[trainingInstanceId];
-			variances[classId][featureId] += std::pow(data[trainingInstanceId][featureId] - means[classId][featureId], 2);
+			variances[classId][featureId] += std::pow(predictors[trainingInstanceId][featureId] - means[classId][featureId], 2);
 		}
 	}
 
@@ -119,23 +85,19 @@ void MLL::SL::Classification::GaussianNaiveBayesClassifier::Print()
 	}
 }
 
-void MLL::SL::Classification::GaussianNaiveBayesClassifier::Run()
+void MLL::SL::Classification::GaussianNaiveBayesClassifier::Predict(const std::vector<std::vector<double> >& predictors, std::vector<int>& predictions)
 {
-	std::vector<std::vector<double> > data;
-	std::vector<int> labels;
-	Load(data, labels, false);
-
-	size_t numOfTrainingInstances = data.size();
+	size_t numOfTrainingInstances = predictors.size();
 	std::cout << "Real, Predicted\n";
 	for (size_t trainingInstanceId = 0; trainingInstanceId < numOfTrainingInstances; ++trainingInstanceId)
 	{
-		int predictedClass = -1;
+		size_t predictedClass = 0;
 		double maxClassCondProb = -1.0;
 		for (size_t classId = 0; classId < numOfClasses; ++classId)
 		{
 			double classCondProb = 1.0;
 			for (size_t featureId = 0; featureId < numOfFeatures; ++featureId)
-				classCondProb *= MLL::UTIL::mfnc::GaussianPdf(means[classId][featureId], variances[classId][featureId], data[trainingInstanceId][featureId]);
+				classCondProb *= MLL::UTIL::mfnc::GaussianPdf(means[classId][featureId], variances[classId][featureId], predictors[trainingInstanceId][featureId]);
 			classCondProb *= classProbs[classId];
 			if (classCondProb > maxClassCondProb)
 			{
@@ -143,6 +105,6 @@ void MLL::SL::Classification::GaussianNaiveBayesClassifier::Run()
 				predictedClass = classId;
 			}
 		}
-		std::cout << labels[trainingInstanceId] << "," << predictedClass << std::endl;
+		predictions.push_back(predictedClass);
 	}
 }

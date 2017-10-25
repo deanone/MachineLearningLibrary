@@ -9,9 +9,10 @@ c:\users\thana\visualc++projects\machinelearninglibrary\machinelearninglibrary\x
 c:\users\thana\visualc++projects\machinelearninglibrary\machinelearninglibrary\x64\release\naivebayesclassifier.obj
 c:\users\thana\visualc++projects\machinelearninglibrary\machinelearninglibrary\x64\release\multinomialnaivebayesclassifier.obj
 c:\users\thana\visualc++projects\machinelearninglibrary\machinelearninglibrary\x64\release\mathfunc.obj
+c:\users\thana\visualc++projects\machinelearninglibrary\machinelearninglibrary\x64\release\loader.obj
 c:\users\thana\visualc++projects\machinelearninglibrary\machinelearninglibrary\x64\release\linearregressor.obj
 c:\users\thana\visualc++projects\machinelearninglibrary\machinelearninglibrary\x64\release\layer.obj
-c:\users\thana\visualc++projects\machinelearninglibrary\machinelearninglibrary\x64\release\knn.obj
+c:\users\thana\visualc++projects\machinelearninglibrary\machinelearninglibrary\x64\release\knnclassifier.obj
 c:\users\thana\visualc++projects\machinelearninglibrary\machinelearninglibrary\x64\release\kmeans.obj
 c:\users\thana\visualc++projects\machinelearninglibrary\machinelearninglibrary\x64\release\genericfunc.obj
 c:\users\thana\visualc++projects\machinelearninglibrary\machinelearninglibrary\x64\release\gaussiannaivebayesclassifier.obj

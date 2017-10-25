@@ -4,8 +4,8 @@
 * [propertyName] = [propertyValue]
 */
 
-#ifndef PROPERTIES_PARSER_H
-#define PROPERTIES_PARSER_H
+#ifndef MACHINE_LEARNING_LIBRARY_UTILITIES_PROPERTIES_PARSER_H
+#define MACHINE_LEARNING_LIBRARY_UTILITIES_PROPERTIES_PARSER_H
 
 #include <string>
 #include <map>
@@ -36,4 +36,4 @@ namespace MLL
 	}
 }
 
-#endif	//	!PROPERTIES_PARSER_H
+#endif	//	!MACHINE_LEARNING_LIBRARY_UTILITIES_PROPERTIES_PARSER_H

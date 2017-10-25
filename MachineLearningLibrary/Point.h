@@ -1,5 +1,5 @@
-#ifndef Point_H
-#define Point_H
+#ifndef MACHINE_LEARNING_LIBRARY_UNSUPERVISED_LEARNING_CLUSTERING_POINT_H
+#define MACHINE_LEARNING_LIBRARY_UNSUPERVISED_LEARNING_CLUSTERING_POINT_H
 
 #include <vector>
 
@@ -27,7 +27,7 @@ namespace MLL
 				Point operator=(const Point &p);
 				bool operator==(const Point &p);
 				bool operator<(const Point &p);
-				Point operator/(int m);				
+				Point operator/(size_t m);				
 				void PrintValuesToConsole();
 				void WriteValuesToFile(std::ostream &out);
 

@@ -1,5 +1,5 @@
-#ifndef CLASSIFIER_H
-#define CLASSIFIER_H
+#ifndef MACHINE_LEARNING_LIBRARY_SUPERVISED_LEARNING_CLASSIFICATION_CLASSIFIER_H
+#define MACHINE_LEARNING_LIBRARY_SUPERVISED_LEARNING_CLASSIFICATION_CLASSIFIER_H
 
 #include <string>
 
@@ -11,24 +11,16 @@ namespace MLL
 		{
 			class Classifier
 			{
-			protected:
-				std::string trainDataFilename;
-				std::string testDataFilename;
 			public:
-				Classifier(std::string trainDataFilename_, std::string testDataFilename_);
+				Classifier();
 				~Classifier();
-
-				void SetTrainDataFilename(const std::string& trainDataFilename);
-				std::string GetTrainDataFilename() const;
-				void SetTestDataFilename(const std::string& testDataFilename);
-				std::string GetTestDataFilename() const;
 				
-				virtual void Fit();
-				virtual void Print();
-				virtual void Run();
+				virtual void Fit(const std::vector<std::vector<double> >& predictors, const std::vector<int>& labels) = 0;
+				virtual void Predict(const std::vector<std::vector<double> >& predictors, std::vector<int>& predictions) = 0;
+				virtual void Print() = 0;
 			};
 		}
 	}
 }
 
-#endif	//	!CLASSIFIER_H
+#endif	//	!MACHINE_LEARNING_LIBRARY_SUPERVISED_LEARNING_CLASSIFICATION_CLASSIFIER_H

@@ -1,5 +1,5 @@
-#ifndef MULTINOMIAL_NAIVE_BAYES_CLASSIFIER
-#define MULTINOMIAL_NAIVE_BAYES_CLASSIFIER
+#ifndef MACHINE_LEARNING_LIBRARY_SUPERVISED_LEARNING_CLASSIFICATION_MULTINOMIAL_NAIVE_BAYES_CLASSIFIER
+#define MACHINE_LEARNING_LIBRARY_SUPERVISED_LEARNING_CLASSIFICATION_MULTINOMIAL_NAIVE_BAYES_CLASSIFIER
 
 #include "NaiveBayesClassifier.h"
 
@@ -12,16 +12,15 @@ namespace MLL
 			class MultinomialNaiveBayesClassifier : public NaiveBayesClassifier
 			{
 			public:
-				MultinomialNaiveBayesClassifier(std::string trainDataFilename_, std::string testDataFilename_, 
-					unsigned int numOfFeatures_, unsigned int numOfClasses_);
+				MultinomialNaiveBayesClassifier(unsigned int numOfFeatures_, unsigned int numOfClasses_);
 				~MultinomialNaiveBayesClassifier();
-				void Load(std::vector<std::vector<double> >& data, std::vector<int>& labels, bool training = true);
-				void Fit();
+
+				void Fit(const std::vector<std::vector<double> >& predictors, const std::vector<int>& labels);
+				void Predict(const std::vector<std::vector<double> >& predictors, std::vector<int>& predictions);
 				void Print();
-				void Run();
 			};
 		}
 	}
 }
 
-#endif	//	!MULTINOMIAL_NAIVE_BAYES_CLASSIFIER
+#endif	//	!MACHINE_LEARNING_LIBRARY_SUPERVISED_LEARNING_CLASSIFICATION_MULTINOMIAL_NAIVE_BAYES_CLASSIFIER

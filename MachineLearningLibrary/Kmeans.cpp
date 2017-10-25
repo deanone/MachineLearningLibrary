@@ -130,7 +130,7 @@ int  MLL::UL::Clustering::Kmeans::GetK() const
  */
 void MLL::UL::Clustering::Kmeans::SetInitialClustersRandomly()
 {
-	srand(static_cast<size_t>(time(NULL)));
+	srand(static_cast<unsigned int>(time(NULL)));
 	for (int i = 0; i < k; ++i)
 	{
 		int index = rand() % points.size();
@@ -158,7 +158,7 @@ void MLL::UL::Clustering::Kmeans::SetPointsToClusters()
 {
 	double dist = 0.0;
 	double minDist = 100000000.0;
-	int minID;
+	size_t minID = 0;
 	for (size_t i = 0; i < points.size(); i++)
 	{
 		for (size_t j = 0; j < initialClusters.size(); j++)
@@ -209,7 +209,7 @@ void MLL::UL::Clustering::Kmeans::SetPointsToClusters()
  */
 void MLL::UL::Clustering::Kmeans::SetFinalClusters()
 {
-	int n;
+	size_t n = 0;
 	for (int i = 0; i < k; ++i)
 	{
 		Point new_centroid;

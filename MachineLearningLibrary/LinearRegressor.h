@@ -1,5 +1,5 @@
-#ifndef LINEAR_REGRESSOR_H
-#define LINEAR_REGRESSOR_H
+#ifndef MACHINE_LEARNING_LIBRARY_SUPERVISED_LEARNING_REGRESSION_LINEAR_REGRESSOR_H
+#define MACHINE_LEARNING_LIBRARY_SUPERVISED_LEARNING_REGRESSION_LINEAR_REGRESSOR_H
 
 #include "Regressor.h"
 #include <vector>
@@ -12,20 +12,17 @@ namespace MLL
 		{
 			class LinearRegressor : public Regressor
 			{
-				std::vector<std::vector<double> > X;
-				std::vector<double> y;
 				std::vector<double> b;
 			public:
-				LinearRegressor(std::string trainDataFilename_, std::string testDataFilename_);
+				LinearRegressor();
 				~LinearRegressor();
 
-				void Load(bool training = true);
-				void Fit();
+				void Fit(const std::vector<std::vector<double> >& predictors, const std::vector<double>& labels);
+				void Predict(const std::vector<std::vector<double> >& predictors, std::vector<double>& predictions);
 				void Print();
-				void Run();
 			};
 		}
 	}
 }
 
-#endif	//	!LINEAR_REGRESSOR_H
+#endif	//	!MACHINE_LEARNING_LIBRARY_SUPERVISED_LEARNING_REGRESSION_LINEAR_REGRESSOR_H

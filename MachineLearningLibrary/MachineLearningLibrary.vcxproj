@@ -171,9 +171,10 @@
     <ClInclude Include="GaussianNaiveBayesClassifier.h" />
     <ClInclude Include="GenericFunc.h" />
     <ClInclude Include="Kmeans.h" />
-    <ClInclude Include="KNN.h" />
+    <ClInclude Include="KNNClassifier.h" />
     <ClInclude Include="Layer.h" />
     <ClInclude Include="LinearRegressor.h" />
+    <ClInclude Include="Loader.h" />
     <ClInclude Include="MathFunc.h" />
     <ClInclude Include="MultinomialNaiveBayesClassifier.h" />
     <ClInclude Include="NaiveBayesClassifier.h" />
@@ -191,9 +192,10 @@
     <ClCompile Include="GaussianNaiveBayesClassifier.cpp" />
     <ClCompile Include="GenericFunc.cpp" />
     <ClCompile Include="Kmeans.cpp" />
-    <ClCompile Include="KNN.cpp" />
+    <ClCompile Include="KNNClassifier.cpp" />
     <ClCompile Include="Layer.cpp" />
     <ClCompile Include="LinearRegressor.cpp" />
+    <ClCompile Include="Loader.cpp" />
     <ClCompile Include="MathFunc.cpp" />
     <ClCompile Include="MultinomialNaiveBayesClassifier.cpp" />
     <ClCompile Include="NaiveBayesClassifier.cpp" />

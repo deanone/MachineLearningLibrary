@@ -4,79 +4,43 @@
 
 using namespace arma;
 
-MLL::SL::Regression::LinearRegressor::LinearRegressor(std::string trainDataFilename_, std::string testDataFilename_)
-	: Regressor(trainDataFilename_, testDataFilename_)
+MLL::SL::Regression::LinearRegressor::LinearRegressor()
 {
 }
 
 MLL::SL::Regression::LinearRegressor::LinearRegressor::~LinearRegressor()
 {
-	if (!X.empty()) X.clear();
-	if (!y.empty()) y.clear();
 	if (!b.empty()) b.clear();
 }
 
-void MLL::SL::Regression::LinearRegressor::Load(bool training /*= true*/)
+void MLL::SL::Regression::LinearRegressor::Fit(const std::vector<std::vector<double> >& predictors, const std::vector<double>& labels)
 {
-	// Load all data into memory.
-	// TODO: Change this to iteratively read training instances from disk in
-	// order to reduce the memory limitations.
-
-	std::string filename = training ? trainDataFilename : testDataFilename;
-	std::string line;
-	std::ifstream in(filename);
-	if (in.is_open())
-	{
-		while (std::getline(in, line))
-		{
-			std::istringstream iss(line);
-			std::string item;
-			std::vector<std::string> items;
-			while (std::getline(iss, item, ','))
-				items.push_back(item);
-
-			std::vector<double> temp;
-			temp.push_back(1.0);	//	intercept
-			for (size_t i = 0; i < (items.size() - 1); ++i)
-				temp.push_back(stod(items[i]));
-			X.push_back(temp);
-			y.push_back(stod(items[items.size() - 1]));	//	value of the dependent variable is the last value of each row
-		}
-		in.close();
-	}
-}
-
-void MLL::SL::Regression::LinearRegressor::Fit()
-{
-	// Load data
-	Load();
-
-	size_t numOfObservations = X.size();
-	size_t numOfFeatures = X[0].size();
+	size_t numOfObservations = predictors.size();
+	size_t numOfFeatures = predictors[0].size();
 	b.assign(numOfFeatures, 0.0);
 
 	// Pass X matrix to a data structure of type arma::Mat
 	// TODO: Change X from std::vector<std::vector<double> > to arma::Mat to avoid this data transfer
-	mat Xmat(numOfObservations, numOfFeatures, fill::zeros);
+	arma::Mat<double> Xmat(numOfObservations, numOfFeatures, fill::zeros);
 	size_t i = 0;
 	size_t j = 0;
 	for (; i < numOfObservations; ++i)
 	{
 		j = 0;
 		for (; j < numOfFeatures; ++j)
-			Xmat(i, j) = X[i][j];
+			Xmat(i, j) = predictors[i][j];
 	}
 
 	// Pass y to a data structure of type arma::Vec
 	// TODO: Change y from std::vector<double> to arma::Vec to avoid this data transfer
-	vec yvec(y.size(), fill::zeros);
+	arma::Col<double> yvec(labels.size(), fill::zeros);
 	i = 0;
 	for (; i < numOfObservations; ++i)
-		yvec(i) = y[i];
+		yvec(i) = labels[i];
 
-	mat U;
-	vec s;
-	mat V;
+	arma::Mat<double> U;
+	arma::Col<double> s;
+	arma::Mat<double> V;
 
 	// Perform the SVD decomposition
 	svd(U, s, V, Xmat);
@@ -87,7 +51,7 @@ void MLL::SL::Regression::LinearRegressor::Fit()
 	// Computation->Orthogonal Decomposition Methods
 	// at the method that uses the SVD
 
-	mat S(numOfObservations, numOfFeatures, fill::zeros);
+	arma::Mat<double> S(numOfObservations, numOfFeatures, fill::zeros);
 	i = 0;
 	for (; i < numOfObservations; ++i)
 	{
@@ -97,36 +61,39 @@ void MLL::SL::Regression::LinearRegressor::Fit()
 				S(i, j) = 1.0 / s[j];
 	}
 	
-	mat invS = S.t();
+	arma::Mat<double> invS = S.t();
 
-	vec bvec = ((V.t() * invS) * U.t()) * yvec;
+	arma::Col<double> bvec = ((V * invS) * U.t()) * yvec;
 	U.clear();
 	s.clear();
 	V.clear();
 
 	// Pass the estimated parameters from the arma::Vec data structure to a std::vector<double>
-	for (size_t j = 0; j < numOfFeatures; j++)
+	j = 0;
+	for (; j < numOfFeatures; j++)
 		b[j] = bvec(j);
-
-	// Clear training data
-	X.clear();
-	y.clear();
 }
 
 void MLL::SL::Regression::LinearRegressor::Print()
 {
 	size_t i = 0;
-	for (; i < b.size(); ++i)
-		std::cout << b[i] << std::endl;
+	size_t numOfWeights = b.size();
+	for (; i < numOfWeights; ++i)
+	{
+		std::cout << b[i];
+		if (i != (numOfWeights - 1))
+			std::cout << " ";
+	}
+	std::cout << std::endl;
 }
 
-void MLL::SL::Regression::LinearRegressor::Run()
+void MLL::SL::Regression::LinearRegressor::Predict(const std::vector<std::vector<double> >& predictors, std::vector<double>& predictions)
 {
-	Load(false);
-	size_t numOfObservations = X.size();
-	for (size_t i = 0; i < numOfObservations; i++)
+	size_t i = 0;
+	size_t numOfObservations = predictors.size();
+	for (; i < numOfObservations; ++i)
 	{
-		double yHat = std::inner_product(X[i].begin(), X[i].end(), b.begin(), 0.0);
-		std::cout << y[i] << " " << yHat << std::endl;
+		double prediction = std::inner_product(predictors[i].begin(), predictors[i].end(), b.begin(), 0.0);
+		predictions.push_back(prediction);
 	}
 }

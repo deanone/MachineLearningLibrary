@@ -127,7 +127,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Users\thana\VisualC++Projects\MachineLearningLibrary\MachineLearningLibrary</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\C++\Libraries\armadillo-8.200.1\armadillo-8.200.1\include;C:\Users\thana\VisualC++Projects\MachineLearningLibrary\MachineLearningLibrary</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -145,7 +145,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Users\thana\VisualC++Projects\MachineLearningLibrary\MachineLearningLibrary</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\C++\Libraries\armadillo-8.200.1\armadillo-8.200.1\include;C:\Users\thana\VisualC++Projects\MachineLearningLibrary\MachineLearningLibrary</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

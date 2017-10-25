@@ -60,9 +60,6 @@
     <ClInclude Include="MultinomialNaiveBayesClassifier.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="KNN.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Classifier.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -70,6 +67,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="LinearRegressor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Loader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="KNNClassifier.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -113,9 +116,6 @@
     <ClCompile Include="MultinomialNaiveBayesClassifier.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="KNN.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Classifier.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -123,6 +123,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="LinearRegressor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Loader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="KNNClassifier.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

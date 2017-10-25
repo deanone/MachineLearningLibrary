@@ -1,5 +1,5 @@
-#ifndef NAIVE_BAYES_CLASSIFIER
-#define NAIVE_BAYES_CLASSIFIER
+#ifndef MACHINE_LEARNING_LIBRARY_SUPERVISED_LEARNING_CLASSIFICATION_NAIVE_BAYES_CLASSIFIER
+#define MACHINE_LEARNING_LIBRARY_SUPERVISED_LEARNING_CLASSIFICATION_NAIVE_BAYES_CLASSIFIER
 
 #include <vector>
 #include "Classifier.h"
@@ -17,18 +17,17 @@ namespace MLL
 				size_t numOfClasses;
 				std::vector<double> classProbs;
 			public:
-				NaiveBayesClassifier(std::string trainDataFilename_, std::string testDataFilename_, 
-					unsigned int numOfFeatures_, unsigned int numOfClasses_);
+				NaiveBayesClassifier(unsigned int numOfFeatures_, unsigned int numOfClasses_);
 				~NaiveBayesClassifier();
+
 				size_t GetNumOfFeatures() const;
 				size_t GetNumOfClasses() const;
-				virtual void Load(std::vector<std::vector<double> >& data, std::vector<int>& labels, bool training = true);
-				void Fit();
+				void Fit(const std::vector<std::vector<double> >& predictors, const std::vector<int>& labels);
+				void Predict(const std::vector<std::vector<double> >& predictors, std::vector<int>& predictions);
 				void Print();
-				void Run();
 			};
 		}
 	}
 }
 
-#endif	//	!NAIVE_BAYES_CLASSIFIER
+#endif	//	!MACHINE_LEARNING_LIBRARY_SUPERVISED_LEARNING_CLASSIFICATION_NAIVE_BAYES_CLASSIFIER

@@ -2,8 +2,6 @@
   Regressor.cpp
   PropertiesParser.cpp
   Point.cpp
-c:\users\thana\visualc++projects\machinelearninglibrary\machinelearninglibrary\point.cpp(114): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-c:\users\thana\visualc++projects\machinelearninglibrary\machinelearninglibrary\point.cpp(115): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
   Neuron.cpp
   NeuralNetwork.cpp
 c:\users\thana\visualc++projects\machinelearninglibrary\machinelearninglibrary\neuralnetwork.cpp(67): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
@@ -11,22 +9,22 @@ c:\users\thana\visualc++projects\machinelearninglibrary\machinelearninglibrary\n
   MultinomialNaiveBayesClassifier.cpp
   MathFunc.cpp
 c:\users\thana\visualc++projects\machinelearninglibrary\machinelearninglibrary\mathfunc.cpp(185): warning C4244: 'return': conversion from '__int64' to 'int', possible loss of data
+  Loader.cpp
+CL : warning : detected 'min' and/or 'max' macros and undefined them;
+CL : warning : you may wish to define NOMINMAX before including any windows header
   LinearRegressor.cpp
 CL : warning : detected 'min' and/or 'max' macros and undefined them;
 CL : warning : you may wish to define NOMINMAX before including any windows header
   Layer.cpp
-  KNN.cpp
+  KNNClassifier.cpp
 c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.11.25503\include\utility(216): warning C4244: 'initializing': conversion from 'unsigned __int64' to 'int', possible loss of data
-  c:\users\thana\visualc++projects\machinelearninglibrary\machinelearninglibrary\knn.cpp(90): note: see reference to function template instantiation 'std::pair<int,double>::pair<unsigned __int64,double,void,0>(std::pair<unsigned __int64,double> &&) noexcept' being compiled
-  c:\users\thana\visualc++projects\machinelearninglibrary\machinelearninglibrary\knn.cpp(90): note: see reference to function template instantiation 'std::pair<int,double>::pair<unsigned __int64,double,void,0>(std::pair<unsigned __int64,double> &&) noexcept' being compiled
+  c:\users\thana\visualc++projects\machinelearninglibrary\machinelearninglibrary\knnclassifier.cpp(46): note: see reference to function template instantiation 'std::pair<int,double>::pair<unsigned __int64,double,void,0>(std::pair<unsigned __int64,double> &&) noexcept' being compiled
+  c:\users\thana\visualc++projects\machinelearninglibrary\machinelearninglibrary\knnclassifier.cpp(46): note: see reference to function template instantiation 'std::pair<int,double>::pair<unsigned __int64,double,void,0>(std::pair<unsigned __int64,double> &&) noexcept' being compiled
   Kmeans.cpp
-c:\users\thana\visualc++projects\machinelearninglibrary\machinelearninglibrary\kmeans.cpp(133): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
-c:\users\thana\visualc++projects\machinelearninglibrary\machinelearninglibrary\kmeans.cpp(199): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-c:\users\thana\visualc++projects\machinelearninglibrary\machinelearninglibrary\kmeans.cpp(219): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
   GenericFunc.cpp
   GaussianNaiveBayesClassifier.cpp
-c:\users\thana\visualc++projects\machinelearninglibrary\machinelearninglibrary\gaussiannaivebayesclassifier.cpp(104): warning C4267: 'argument': conversion from 'size_t' to 'const int', possible loss of data
-c:\users\thana\visualc++projects\machinelearninglibrary\machinelearninglibrary\gaussiannaivebayesclassifier.cpp(143): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+c:\users\thana\visualc++projects\machinelearninglibrary\machinelearninglibrary\gaussiannaivebayesclassifier.cpp(70): warning C4267: 'argument': conversion from 'size_t' to 'const int', possible loss of data
+c:\users\thana\visualc++projects\machinelearninglibrary\machinelearninglibrary\gaussiannaivebayesclassifier.cpp(108): warning C4267: 'argument': conversion from 'size_t' to 'const int', possible loss of data
   Cluster.cpp
   Classifier.cpp
   Generating Code...

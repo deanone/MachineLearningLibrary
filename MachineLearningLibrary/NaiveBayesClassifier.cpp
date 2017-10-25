@@ -1,9 +1,8 @@
 #include "stdafx.h"
 #include "NaiveBayesClassifier.h"
 
-MLL::SL::Classification::NaiveBayesClassifier::NaiveBayesClassifier(std::string trainDataFilename_, std::string testDataFilename_, 
-	unsigned int numOfFeatures_, unsigned int numOfClasses_) 
-	: Classifier(trainDataFilename_, testDataFilename_) , numOfFeatures(numOfFeatures_), numOfClasses(numOfClasses_)
+MLL::SL::Classification::NaiveBayesClassifier::NaiveBayesClassifier(unsigned int numOfFeatures_, unsigned int numOfClasses_) 
+	: numOfFeatures(numOfFeatures_), numOfClasses(numOfClasses_)
 {
 	classProbs.assign(numOfClasses, 0.0);
 }
@@ -22,18 +21,14 @@ size_t MLL::SL::Classification::NaiveBayesClassifier::GetNumOfClasses() const
 	return numOfClasses;
 }
 
-void MLL::SL::Classification::NaiveBayesClassifier::Load(std::vector<std::vector<double> >& data, std::vector<int>& labels, bool training /*= true*/)
+void MLL::SL::Classification::NaiveBayesClassifier::Fit(const std::vector<std::vector<double> >& predictors, const std::vector<int>& labels)
 {
 }
 
-void MLL::SL::Classification::NaiveBayesClassifier::Fit()
+void MLL::SL::Classification::NaiveBayesClassifier::Predict(const std::vector<std::vector<double> >& predictors, std::vector<int>& predictions)
 {
 }
 
 void MLL::SL::Classification::NaiveBayesClassifier::Print()
-{
-}
-
-void MLL::SL::Classification::NaiveBayesClassifier::Run()
 {
 }

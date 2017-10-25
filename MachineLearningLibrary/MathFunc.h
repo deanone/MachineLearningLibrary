@@ -1,10 +1,6 @@
-#ifndef MATH_FUNC_H
-#define MATH_FUNC_H
+#ifndef MACHINE_LEARNING_LIBRARY_UTILITIES_MATH_FUNC_H
+#define MACHINE_LEARNING_LIBRARY_UTILITIES_MATH_FUNC_H
 
-#include "Point.h"
-// All the implemented functions are currently implemented for vectors of doubles.
-// They should work for all the types. So:
-// TODO: Change functions to template functions
 namespace MLL
 {
 	namespace UTIL
@@ -60,4 +56,4 @@ namespace MLL
 	}
 }
 
-#endif	//	!MATH_FUNC_H
+#endif	//	!MACHINE_LEARNING_LIBRARY_UTILITIES_MATH_FUNC_H

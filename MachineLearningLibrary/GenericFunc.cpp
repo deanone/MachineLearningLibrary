@@ -36,7 +36,7 @@ std::string MLL::UTIL::gnfnc::GetExecutablePath()
 *Function that concatenates the path of the project's executable with a filename.
 *@return the concatenation of the path of the project's executable with a filename.
 */
-std::string MLL::UTIL::gnfnc::GetExecutablePathAndMatchItWithFilename(std::string filename)
+std::string MLL::UTIL::gnfnc::GetExecutablePathAndMatchItWithFilename(const std::string& filename)
 {
 	std::string execPath = GetExecutablePath();
 	size_t found = execPath.find_last_of("\\");
@@ -46,16 +46,38 @@ std::string MLL::UTIL::gnfnc::GetExecutablePathAndMatchItWithFilename(std::strin
 	return ss.str();
 }
 
-int MLL::UTIL::gnfnc::CountNumberOfLinesInFile(std::string filename)
+size_t MLL::UTIL::gnfnc::CountNumberOfRowsInFile(const std::string& filename)
 {
-	int numberOfLines = 0;
-	std::string dataline = "";
+	size_t numberOfRows = 0;
+	std::string line;
 	std::ifstream in(filename);
 	if (in.is_open())
 	{
-		while (std::getline(in, dataline))
-			numberOfLines++;
+		while (std::getline(in, line))
+			numberOfRows++;
 		in.close();
 	}
-	return numberOfLines;
+	return numberOfRows;
+}
+
+size_t MLL::UTIL::gnfnc::CountNumberOfColsInFile(const std::string& filename)
+{
+	size_t numberOfCols = 0;
+	std::string line;
+	std::ifstream in(filename);
+	if (in.is_open())
+	{
+		while (std::getline(in, line))
+		{
+			std::istringstream iss(line);
+			std::string item;
+			std::vector<std::string> items;
+			while (std::getline(iss, item, ','))
+				items.push_back(item);
+			numberOfCols = items.size();
+			break;
+		}
+		in.close();
+	}
+	return numberOfCols;
 }
